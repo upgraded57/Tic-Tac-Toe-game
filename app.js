@@ -6,8 +6,16 @@ const resultDialogue = document.querySelector(".result");
 const winner = document.getElementById("winner");
 const closeResultDialogueBtn = document.getElementById("close-result");
 
+// DOM elements for scoreboard
+const xScoreEl = document.getElementById("x-score-el");
+const oScoreEl = document.getElementById("o-score-el");
+
 // initilaize count value to keep tab of player status
 let count = 1;
+
+// initialize starting score for X and O
+let x_score = 0;
+let o_score = 0;
 
 // initializes span element to display next sign hint
 const hintText = document.createElement("span");
@@ -92,6 +100,7 @@ function clearFields() {
 // 1, 5, 9
 // 3, 5, 7
 
+// function to check winner
 function checkwinner() {
   // first X winning permutation
   if (
@@ -151,7 +160,12 @@ function checkwinner() {
       boxes[6].classList.contains("filled") &&
       boxes[6].innerText === "X")
   ) {
-    winner.innerText = "X";
+    winner.innerText = "X WINS";
+    // Updates score of X
+    x_score += 1;
+    // Prints score of X
+    xScoreEl.innerText = x_score;
+    // Ends the game
     return (gameEnded = true);
   }
 
@@ -213,13 +227,29 @@ function checkwinner() {
       boxes[6].classList.contains("filled") &&
       boxes[6].innerText === "0")
   ) {
-    winner.innerText = "O";
+    winner.innerText = "O WINS";
+    // updates current score of O
+    o_score += 1;
+    // prints score of O
+    oScoreEl.innerText = o_score;
+    // ends the game
     return (gameEnded = true);
-  }
-
-  // Draw permutation
-  else {
-    return (gameEnded = false);
+  } else if (
+    boxes[0].classList.contains("filled") &&
+    boxes[1].classList.contains("filled") &&
+    boxes[2].classList.contains("filled") &&
+    boxes[3].classList.contains("filled") &&
+    boxes[4].classList.contains("filled") &&
+    boxes[5].classList.contains("filled") &&
+    boxes[6].classList.contains("filled") &&
+    boxes[7].classList.contains("filled") &&
+    boxes[8].classList.contains("filled") &&
+    gameEnded == false
+  ) {
+    winner.innerText = "DRAW";
+    return (gameEnded = true);
+  } else {
+    return;
   }
 }
 

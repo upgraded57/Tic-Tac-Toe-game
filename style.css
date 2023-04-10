@@ -3,11 +3,22 @@ body {
   margin: 0;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-family: "Argentum sans", sans-serif;
+  row-gap: 5vh;
 }
 
+header {
+  position: absolute;
+  top: 5vh;
+}
+
+header h2 {
+  font-weight: 600;
+}
 section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -22,7 +33,6 @@ section .box {
   justify-content: center;
   align-items: center;
   color: grey;
-  font-family: "Argentum sans", sans-serif;
   font-weight: 700;
   font-size: 4em;
   cursor: pointer;
@@ -35,7 +45,7 @@ section .box:hover {
   position: absolute;
   bottom: 5vh;
   padding: 5px 12px;
-  font-family: "Argentum sans", sans-serif;
+  font-family: inherit;
   font-size: 1em;
   cursor: pointer;
 }
@@ -50,8 +60,8 @@ section .box:hover {
   width: 100vw;
   height: 100vh;
   position: absolute;
-  font-family: "Argentum sans", sans-serif;
   font-size: 2em;
+  z-index: 100;
 }
 
 #close-result {
@@ -62,4 +72,44 @@ section .box:hover {
   font-weight: bold;
   border: 2px solid white;
   outline: none;
+}
+
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  padding: 10px 15px;
+  align-items: center;
+  margin-bottom: 20px;
+  color: grey;
+  /* margin-top: -10vh; */
+}
+
+.scoreboard h4 {
+  margin: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scoreboard div {
+  display: flex;
+}
+
+.scoreboard div p {
+  margin: 0;
+}
+
+.scoreboard div p span {
+  color: black;
+}
+
+.scoreboard div p:first-child {
+  padding-right: 10px;
+  border-right: 2px solid grey;
+  margin-right: 10px;
 }
